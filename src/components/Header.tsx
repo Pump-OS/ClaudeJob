@@ -37,7 +37,7 @@ export function Header({ onAboutClick, onHowItWorksClick, onHelpClick }: HeaderP
                 transition={{ duration: 2, repeat: Infinity }}
               >
                 <Image
-                  src="/images/agent-icon.svg"
+                  src="/images/logo.jpg"
                   alt="ClawdJob"
                   width={40}
                   height={40}
