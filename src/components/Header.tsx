@@ -84,7 +84,7 @@ export function Header({ onAboutClick, onHowItWorksClick, onHelpClick }: HeaderP
               className="flex items-center gap-2 px-4 py-2 rounded-lg bg-terracotta/20 border border-terracotta/30 text-terracotta hover:bg-terracotta/30 hover:text-sand transition-all"
             >
               <Send className="w-4 h-4" />
-              <span className="text-sm font-mono">Help Clawdjob</span>
+              <span className="text-sm font-mono">Help ClaudeJob</span>
             </button>
           </motion.nav>
 

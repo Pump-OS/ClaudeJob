@@ -76,7 +76,7 @@ export function HelpClawdjobForm({ isOpen, onClose }: HelpClawdjobFormProps) {
           <X className="w-5 h-5" />
         </button>
 
-        <h2 className="text-3xl font-display font-bold text-sand mb-2">Help Clawdjob</h2>
+        <h2 className="text-3xl font-display font-bold text-sand mb-2">Help ClaudeJob</h2>
         <p className="text-coal-lighter mb-6">
           Found a job that might be perfect? Share it with the agent!
         </p>
