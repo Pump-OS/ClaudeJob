@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Star/Sunburst icon with organic rays -->
+  <defs>
+    <linearGradient id="iconGrad" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4834F"/>
+      <stop offset="50%" style="stop-color:#C46733"/>
+      <stop offset="100%" style="stop-color:#AD5938"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Central core -->
+  <circle cx="50" cy="50" r="10" fill="url(#iconGrad)"/>
+  
+  <!-- Organic rays with varying lengths and angles -->
+  <!-- Top -->
+  <rect x="48" y="2" width="4" height="16" rx="2" fill="url(#iconGrad)"/>
+  <rect x="48" y="0" width="4" height="18" rx="2" fill="url(#iconGrad)" transform="rotate(25 50 50)"/>
+  <rect x="48" y="0" width="4" height="17" rx="2" fill="url(#iconGrad)" transform="rotate(-28 50 50)"/>
+  
+  <!-- Top-right -->
+  <rect x="48" y="0" width="4" height="19" rx="2" fill="url(#iconGrad)" transform="rotate(55 50 50)"/>
+  <rect x="48" y="0" width="4" height="20" rx="2" fill="url(#iconGrad)" transform="rotate(85 50 50)"/>
+  <rect x="48" y="0" width="4" height="18" rx="2" fill="url(#iconGrad)" transform="rotate(115 50 50)"/>
+  
+  <!-- Right -->
+  <rect x="48" y="0" width="4" height="17" rx="2" fill="url(#iconGrad)" transform="rotate(145 50 50)"/>
+  <rect x="48" y="0" width="4" height="19" rx="2" fill="url(#iconGrad)" transform="rotate(175 50 50)"/>
+  <rect x="48" y="0" width="4" height="18" rx="2" fill="url(#iconGrad)" transform="rotate(205 50 50)"/>
+  
+  <!-- Bottom -->
+  <rect x="48" y="0" width="4" height="20" rx="2" fill="url(#iconGrad)" transform="rotate(235 50 50)"/>
+  <rect x="48" y="0" width="4" height="17" rx="2" fill="url(#iconGrad)" transform="rotate(265 50 50)"/>
+  <rect x="48" y="0" width="4" height="19" rx="2" fill="url(#iconGrad)" transform="rotate(295 50 50)"/>
+  
+  <!-- Left -->
+  <rect x="48" y="0" width="4" height="18" rx="2" fill="url(#iconGrad)" transform="rotate(325 50 50)"/>
+  <rect x="48" y="0" width="4" height="16" rx="2" fill="url(#iconGrad)" transform="rotate(355 50 50)"/>
+</svg>

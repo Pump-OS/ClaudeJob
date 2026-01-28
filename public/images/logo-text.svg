@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 100" fill="none">
+  <!-- Pixel font CLAUDEJOB with improved spacing -->
+  <defs>
+    <linearGradient id="textGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#EED9B6"/>
+      <stop offset="30%" style="stop-color:#D4834F"/>
+      <stop offset="70%" style="stop-color:#C46733"/>
+      <stop offset="100%" style="stop-color:#AD5938"/>
+    </linearGradient>
+    <filter id="shadow3d">
+      <feDropShadow dx="2" dy="2" stdDeviation="1.5" flood-color="#1F201B" flood-opacity="0.9"/>
+    </filter>
+  </defs>
+  
+  <!-- C -->
+  <rect x="0" y="30" width="10" height="50" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="10" y="30" width="30" height="10" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="10" y="70" width="30" height="10" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="2" y="32" width="5" height="46" fill="#EED9B6" opacity="0.6"/>
+  <rect x="12" y="32" width="26" height="5" fill="#EED9B6" opacity="0.6"/>
+  
+  <!-- L -->
+  <rect x="50" y="30" width="10" height="50" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="60" y="70" width="26" height="10" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="52" y="32" width="5" height="46" fill="#EED9B6" opacity="0.6"/>
+  <rect x="62" y="72" width="22" height="5" fill="#EED9B6" opacity="0.6"/>
+  
+  <!-- A -->
+  <rect x="96" y="38" width="10" height="42" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="126" y="38" width="10" height="42" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="106" y="30" width="20" height="10" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="106" y="50" width="20" height="10" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="98" y="40" width="5" height="38" fill="#EED9B6" opacity="0.6"/>
+  <rect x="128" y="40" width="5" height="38" fill="#EED9B6" opacity="0.6"/>
+  <rect x="108" y="32" width="16" height="5" fill="#EED9B6" opacity="0.6"/>
+  
+  <!-- U -->
+  <rect x="146" y="30" width="10" height="50" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="186" y="30" width="10" height="50" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="156" y="70" width="30" height="10" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="148" y="32" width="5" height="46" fill="#EED9B6" opacity="0.6"/>
+  <rect x="188" y="32" width="5" height="46" fill="#EED9B6" opacity="0.6"/>
+  <rect x="158" y="72" width="26" height="5" fill="#EED9B6" opacity="0.6"/>
+  
+  <!-- D -->
+  <rect x="206" y="30" width="10" height="50" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="216" y="30" width="20" height="10" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="216" y="70" width="20" height="10" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="236" y="38" width="10" height="34" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="208" y="32" width="5" height="46" fill="#EED9B6" opacity="0.6"/>
+  <rect x="218" y="32" width="16" height="5" fill="#EED9B6" opacity="0.6"/>
+  
+  <!-- E -->
+  <rect x="256" y="30" width="10" height="50" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="266" y="30" width="26" height="10" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="266" y="46" width="20" height="10" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="266" y="70" width="26" height="10" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="258" y="32" width="5" height="46" fill="#EED9B6" opacity="0.6"/>
+  <rect x="268" y="32" width="22" height="5" fill="#EED9B6" opacity="0.6"/>
+  
+  <!-- J -->
+  <rect x="302" y="30" width="30" height="10" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="314" y="38" width="10" height="32" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="282" y="58" width="10" height="22" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="292" y="70" width="26" height="10" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="304" y="32" width="26" height="5" fill="#EED9B6" opacity="0.6"/>
+  <rect x="316" y="40" width="5" height="28" fill="#EED9B6" opacity="0.6"/>
+  
+  <!-- O -->
+  <rect x="338" y="30" width="10" height="50" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="386" y="30" width="10" height="50" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="348" y="30" width="38" height="10" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="348" y="70" width="38" height="10" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="340" y="32" width="5" height="46" fill="#EED9B6" opacity="0.6"/>
+  <rect x="388" y="32" width="5" height="46" fill="#EED9B6" opacity="0.6"/>
+  <rect x="350" y="32" width="34" height="5" fill="#EED9B6" opacity="0.6"/>
+  
+  <!-- B -->
+  <rect x="406" y="30" width="10" height="50" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="416" y="30" width="20" height="10" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="416" y="46" width="20" height="10" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="416" y="70" width="20" height="10" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="436" y="38" width="10" height="8" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="436" y="54" width="10" height="8" fill="url(#textGrad)" filter="url(#shadow3d)"/>
+  <rect x="408" y="32" width="5" height="46" fill="#EED9B6" opacity="0.6"/>
+  <rect x="418" y="32" width="16" height="5" fill="#EED9B6" opacity="0.6"/>
+</svg>
