@@ -2,27 +2,54 @@ import { Application, ActivityLog, JobListing, AgentStats } from './types'
 import { getSupabase, isSupabaseConfigured } from './supabase'
 
 const USE_DATABASE = isSupabaseConfigured()
+const IS_VERCEL = process.env.VERCEL === '1' || process.env.VERCEL_ENV !== undefined
 
 function getDb() {
   return getSupabase()
 }
 
-// File-based storage (for local dev without database)
-import fs from 'fs'
-import path from 'path'
+// File-based storage (for local dev only, not on Vercel)
+let fs: typeof import('fs') | null = null
+let path: typeof import('path') | null = null
 
-const DATA_DIR = path.join(process.cwd(), 'data')
+async function loadFsModules() {
+  if (typeof window === 'undefined' && !IS_VERCEL) {
+    try {
+      fs = await import('fs')
+      path = await import('path')
+    } catch {
+      // Modules not available
+    }
+  }
+}
+
+// Initialize fs modules
+loadFsModules()
+
+function getDataDir() {
+  if (!path) return ''
+  return path.join(process.cwd(), 'data')
+}
 
 function ensureDataDir() {
-  if (!USE_DATABASE && typeof window === 'undefined' && !fs.existsSync(DATA_DIR)) {
-    fs.mkdirSync(DATA_DIR, { recursive: true })
+  if (!fs || !path || IS_VERCEL || USE_DATABASE) return
+  const dataDir = getDataDir()
+  try {
+    if (!fs.existsSync(dataDir)) {
+      fs.mkdirSync(dataDir, { recursive: true })
+    }
+  } catch (error) {
+    console.error('Error creating data dir:', error)
   }
 }
 
 function readJsonFile<T>(filename: string, defaultValue: T): T {
-  if (USE_DATABASE || typeof window !== 'undefined') return defaultValue
+  if (USE_DATABASE || IS_VERCEL || !fs || !path || typeof window !== 'undefined') {
+    return defaultValue
+  }
+  
   ensureDataDir()
-  const filepath = path.join(DATA_DIR, filename)
+  const filepath = path.join(getDataDir(), filename)
   try {
     if (fs.existsSync(filepath)) {
       const data = fs.readFileSync(filepath, 'utf-8')
@@ -35,10 +62,15 @@ function readJsonFile<T>(filename: string, defaultValue: T): T {
 }
 
 function writeJsonFile<T>(filename: string, data: T): void {
-  if (USE_DATABASE || typeof window !== 'undefined') return
+  if (USE_DATABASE || IS_VERCEL || !fs || !path || typeof window !== 'undefined') return
+  
   ensureDataDir()
-  const filepath = path.join(DATA_DIR, filename)
-  fs.writeFileSync(filepath, JSON.stringify(data, null, 2))
+  const filepath = path.join(getDataDir(), filename)
+  try {
+    fs.writeFileSync(filepath, JSON.stringify(data, null, 2))
+  } catch (error) {
+    console.error(`Error writing ${filename}:`, error)
+  }
 }
 
 // Applications
@@ -109,7 +141,10 @@ export async function saveApplication(application: Application): Promise<void> {
   if (USE_DATABASE) {
     try {
       const db = getDb()
-      if (!db) throw new Error('Database not configured')
+      if (!db) {
+        console.warn('Database not available, skipping save')
+        return
+      }
       
       const { error } = await db
         .from('applications')
@@ -140,12 +175,10 @@ export async function saveApplication(application: Application): Promise<void> {
 
       if (error) {
         console.error('Supabase error saving application:', error)
-        throw error
       }
       return
     } catch (error) {
       console.error('Error saving application to database:', error)
-      throw error
     }
   }
 
@@ -390,11 +423,16 @@ interface AgentState {
   currentTask?: string
 }
 
+const defaultAgentState: AgentState = {
+  status: 'idle',
+  lastActive: new Date()
+}
+
 export async function getAgentState(): Promise<AgentState> {
   if (USE_DATABASE) {
     try {
       const db = getDb()
-      if (!db) return readJsonFile<AgentState>('agent_state.json', { status: 'idle', lastActive: new Date() })
+      if (!db) return { ...defaultAgentState, lastActive: new Date() }
       
       const { data: rows, error } = await db
         .from('agent_state')
@@ -404,6 +442,7 @@ export async function getAgentState(): Promise<AgentState> {
 
       if (error) {
         console.error('Supabase error fetching agent state:', error)
+        return { ...defaultAgentState, lastActive: new Date() }
       }
 
       if (rows && rows.length > 0) {
@@ -414,15 +453,19 @@ export async function getAgentState(): Promise<AgentState> {
           currentTask: row.current_task || undefined
         }
       }
+      
+      return { ...defaultAgentState, lastActive: new Date() }
     } catch (error) {
       console.error('Error fetching agent state from database:', error)
+      return { ...defaultAgentState, lastActive: new Date() }
     }
   }
 
-  return readJsonFile<AgentState>('agent_state.json', {
-    status: 'idle',
-    lastActive: new Date()
-  })
+  const state = readJsonFile<AgentState>('agent_state.json', defaultAgentState)
+  return {
+    ...state,
+    lastActive: new Date(state.lastActive)
+  }
 }
 
 export async function setAgentState(state: Partial<AgentState>): Promise<void> {
